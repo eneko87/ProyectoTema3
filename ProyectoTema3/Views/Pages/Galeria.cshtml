@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Galeria";
+}
+<link rel="stylesheet" href="~/css/galeria.css" asp-append-version="true" />
+<h2>Galeria</h2>
+
+<!--Fila -->
+<div class="row">
+
+    <!-- Columna -->
+    <div class="col-md-12 d-flex justify-content-center mb-5">
+
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">Todos</button>
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Architecture</button>
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Football</button>
+
+    </div>
+    <!-- Grid column -->
+
+</div>
+
+<div class="gallery" id="gallery">
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+        <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/20190522-W1805-Top-View-Dock.jpg/320px-20190522-W1805-Top-View-Dock.jpg" alt="Space at Sea Dock (Visvesh.S)">
+    </div>
+    <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+        <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Petrovskiy_football_stadium_in_SPB.jpg/320px-Petrovskiy_football_stadium_in_SPB.jpg" alt="Petrovskiy football stadium in Saint Petersburg - Florstein (WikiPhotoSpace)">
+    </div>
+    <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+        <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/1899_Michigan_Wolverines_football_team.jpg/320px-1899_Michigan_Wolverines_football_team.jpg" alt="Michigan football team">
+    </div>
+    <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+        <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Sheffield_football_team.jpg/320px-Sheffield_football_team.jpg" alt="Sheffield football team">
+    </div>
+    <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+        <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Ark_up_Miami_exterior.jpg/320px-Ark_up_Miami_exterior.jpg" alt="Exterior view of Arkup,Miami (Visvesh.S)">
+    </div>
+    <!-- Grid column -->
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+        <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Casa_palafita_II.jpg/320px-Casa_palafita_II.jpg" alt="Casa Palafita (Hezrom Marques)">
+    </div>
+    <!-- Grid column -->
+
+</div>
+<script>
+    $(function () {
+        var selectedClass = "";
+        $(".filter").click(function () {
+            selectedClass = $(this).attr("data-rel");
+            $("#gallery").fadeTo(100, 0.1);
+            $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
+            setTimeout(function () {
+                $("." + selectedClass).fadeIn().addClass('animation');
+                $("#gallery").fadeTo(300, 1);
+            }, 300);
+        });
+    });
+</script>
